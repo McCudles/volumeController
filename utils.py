@@ -1,6 +1,15 @@
 from easing_functions import *
 
 
+def getVolume(time):
+    return 50
+
+
+def setVolume(volume):
+    print("setting volume to:", volume)
+
+
+"""
 def interp(leftTime, leftVol, rightTime, rightVol, currentTime, interpType):
 
     if interpType == 0:
@@ -18,3 +27,4 @@ def interp(leftTime, leftVol, rightTime, rightVol, currentTime, interpType):
     elif interpType == 4:
         a = ExponentialEaseInOut(leftVol, rightVol, rightTime - leftTime)
         return a(currentTime - leftTime)
+"""
