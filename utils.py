@@ -1,18 +1,8 @@
 from easing_functions import *
 import numpy as np
 import math
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
-devices = AudioUtilities.GetSpeakers()
-interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-volume = cast(interface, POINTER(IAudioEndpointVolume))
-volume.GetMute()
-volume.GetMasterVolumeLevel()
-volume.GetVolumeRange()
-
-stepSize = 0.2
+stepSize = 0.1
 x = []
 y = []
 
@@ -57,12 +47,6 @@ def getVolume(time):  # time = currentTime-startTime
     # index=(timeRoundedDown)/stepSize
     index = math.trunc(time / stepSize) - 1
     return round(y[index], 4)
-
-
-def setVolume(vol):
-    global volume
-    volume.SetMasterVolumeLevel(vol, None)
-    print(vol)
 
 
 def interp(leftTime, leftVolume, rightTime, rightVolume, currentTime, interpType):

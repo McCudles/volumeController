@@ -1,8 +1,8 @@
-import volumeController
 import utils
 import matplotlib.pyplot as plt
+import controlPoints as ctrlPnts
 
-data = volumeController.dataPlot()
+data = utils.init(ctrlPnts.points)
 
 plt.plot(data[0], data[1])
 plt.savefig("figure.png")
