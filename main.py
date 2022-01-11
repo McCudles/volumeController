@@ -5,6 +5,8 @@ import numpy as np
 import controlPoints as ctrlPnts
 import volumeController
 
+# This file should be controlled by gui.py
+
 play = True
 controlPoints = ctrlPnts.points
 startTime = time.time()

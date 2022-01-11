@@ -1,19 +1,27 @@
 import asyncio
-import time
 
 
-async def say_after(delay, what):
-    await asyncio.sleep(delay)
-    print(what)
+async def sneed():
+    for i in range(10):
+        print("sneed", i)
+        await asyncio.sleep(0.25)
+
+
+async def chuck():
+    for i in range(10):
+        print("chuck", i)
+        await asyncio.sleep(0.25)
 
 
 async def main():
-    print(f"started at {time.strftime('%X')}")
+    task1 = asyncio.create_task(sneed())
+    task2 = asyncio.create_task(chuck())
 
-    await say_after(1, "hello")
-    await say_after(2, "world")
+    await task1
+    await task2
 
-    print(f"finished at {time.strftime('%X')}")
+    print("awaited tasks!!!!!!!!!!")
 
 
 asyncio.run(main())
+print("finished")

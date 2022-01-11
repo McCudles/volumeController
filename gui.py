@@ -4,6 +4,8 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 import main
 
+# Run this with python.exe
+
 
 class App(QMainWindow):
     @pyqtSlot()
