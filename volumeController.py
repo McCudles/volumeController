@@ -13,4 +13,5 @@ volume.GetVolumeRange()
 
 def setVolume(vol):
     global volume
-    volume.SetMasterVolumeLevel(vol, None)
+    print(vol)
+    volume.SetMasterVolumeLevelScalar(vol / 100, None)

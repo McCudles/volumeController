@@ -44,6 +44,7 @@ def calculateVolume(time, controlPoints):
 
 def getVolume(time):  # time = currentTime-startTime
     global y
+    print("the time in getVolume is:", time)
     # index=(timeRoundedDown)/stepSize
     index = math.trunc(time / stepSize) - 1
     return round(y[index], 4)
