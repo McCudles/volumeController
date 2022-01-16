@@ -55,15 +55,103 @@ def interp(leftTime, leftVolume, rightTime, rightVolume, currentTime, interpType
     if interpType == 0:
         a = LinearInOut(leftVolume, rightVolume, rightTime - leftTime)
         return a(currentTime - leftTime)
+
     elif interpType == 1:
-        a = SineEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        a = QuadEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
         return a(currentTime - leftTime)
+    elif interpType == 10:
+        a = QuadEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 11:
+        a = QuadEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
     elif interpType == 2:
-        a = CircularEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        a = CubicEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
         return a(currentTime - leftTime)
+    elif interpType == 20:
+        a = CubicEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 21:
+        a = CubicEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
     elif interpType == 3:
         a = QuarticEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
         return a(currentTime - leftTime)
+    elif interpType == 30:
+        a = QuarticEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 31:
+        a = QuarticEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
     elif interpType == 4:
+        a = QuinticEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 40:
+        a = QuinticEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 41:
+        a = QuinticEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
+    elif interpType == 5:
+        a = SineEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 50:
+        a = SineEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 51:
+        a = SineEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
+    elif interpType == 6:
+        a = CircularEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 60:
+        a = CircularEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 61:
+        a = CircularEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
+    elif interpType == 7:
         a = ExponentialEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 70:
+        a = ExponentialEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 71:
+        a = ExponentialEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
+    elif interpType == 8:
+        a = ElasticEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 80:
+        a = ElasticEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 81:
+        a = ElasticEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
+    elif interpType == 9:
+        a = BackEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 90:
+        a = BackEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 91:
+        a = BackEaseOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+
+    elif interpType == 12:
+        a = BounceEaseInOut(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 100:
+        a = BounceEaseIn(leftVolume, rightVolume, rightTime - leftTime)
+        return a(currentTime - leftTime)
+    elif interpType == 101:
+        a = BounceEaseOut(leftVolume, rightVolume, rightTime - leftTime)
         return a(currentTime - leftTime)
