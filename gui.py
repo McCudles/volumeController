@@ -97,21 +97,22 @@ class Ui_Dialog(object):
 
         # spawning box that shows the color of the round currently in
         self.roundIndicatorColor = QtWidgets.QGraphicsView(Dialog)
-        self.roundIndicatorColor.setGeometry(QtCore.QRect(460, 10, 91, 81))
+        self.roundIndicatorColor.setGeometry(QtCore.QRect(660, 10, 91, 81))
         self.roundIndicatorColor.setStyleSheet("background-color: rgb(255, 85, 0);")
         self.roundIndicatorColor.setObjectName("roundIndicatorColor")
 
-        # spawning text that says "round color >>>"
-        self.roundColorText = QtWidgets.QLabel(Dialog)
-        self.roundColorText.setGeometry(QtCore.QRect(290, 20, 181, 61))
-        self.roundColorText.setAutoFillBackground(False)
-        self.roundColorText.setStyleSheet(
+        # spawning directions text
+        self.directionsText = QtWidgets.QLabel(Dialog)
+        self.directionsText.setGeometry(QtCore.QRect(290, 20, 181, 61))
+        self.directionsText.setAutoFillBackground(False)
+        self.directionsText.setWordWrap(True)
+        self.directionsText.setStyleSheet(
             "color: rgb(255, 255, 255);\n"
             "background-color: rgba(255, 255, 255, 0);\n"
             'font: 8pt "MS PGothic";\n'
-            'font: 16pt "MS Shell Dlg 2";'
+            'font: 8pt "MS Shell Dlg 2";'
         )
-        self.roundColorText.setObjectName("roundColorText")
+        self.directionsText.setObjectName("directionsText")
 
         # spawning the makeGraph.py resulting image
         self.graph = QtWidgets.QLabel(Dialog)
@@ -186,7 +187,6 @@ class Ui_Dialog(object):
         self.lcdTimer.raise_()
         self.progressBar.raise_()
         self.roundIndicatorColor.raise_()
-        self.roundColorText.raise_()
         self.playButton.raise_()
         self.graph.raise_()
         self.redSlider.raise_()
@@ -195,6 +195,7 @@ class Ui_Dialog(object):
         self.greenSliderText.raise_()
         self.yellowSliderText.raise_()
         self.redSliderText.raise_()
+        self.directionsText.raise_()
 
         self.retranslateUi(Dialog)
         self.playButton.clicked.connect(self.lcdTimer.update)
@@ -207,9 +208,20 @@ class Ui_Dialog(object):
         # setting the text of each element (if there is any)
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "9Round Bell System"))
+        self.directionsText.setText(
+            _translate(
+                "Dialog",
+                "DIRECTIONS: Turn on the physical bell in the studio."
+                "Quickly run to the computer and press the PLAY button "
+                "when you hear the first sound out of the physical bell. "
+                "This program will run in tandem with the physical bell "
+                "and should have no issues. If you need to stop the physical "
+                "bell for any reason, click the RESET button. This will stop "
+                "the program from running and reset the volume to 100. ",
+            )
+        )
         self.playButton.setText(_translate("Dialog", "PLAY"))
         self.resetButton.setText(_translate("Dialog", "RESET"))
-        self.roundColorText.setText(_translate("Dialog", "round color >>>"))
         self.greenSliderText.setText(_translate("Dialog", "Green Bell/Start of Round"))
         self.yellowSliderText.setText(_translate("Dialog", "Yellow bell"))
         self.redSliderText.setText(_translate("Dialog", "Red bell"))
