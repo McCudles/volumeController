@@ -7,6 +7,7 @@ import time
 from threading import *
 import threadWithTrace as twt
 import main
+import volumeController
 
 
 class Ui_Dialog(object):
@@ -250,6 +251,7 @@ class Ui_Dialog(object):
 
     def resetButtonLogic(self):
         self.volumeThread.kill()
+        volumeController.setVolume(100)
         self.playButton.setText(QtCore.QCoreApplication.translate("Dialog", "PLAY"))
         self.x = 0
 
