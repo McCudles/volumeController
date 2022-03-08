@@ -16,7 +16,7 @@ class Ui_Dialog(object):
 
         # setting window size BG color
         Dialog.setObjectName("Window")
-        Dialog.resize(800, 400)
+        Dialog.resize(400, 200)
         Dialog.setMinimumSize(QtCore.QSize(100, 100))
         Dialog.setMaximumSize(QtCore.QSize(1920, 1080))
         font = QtGui.QFont()
@@ -46,24 +46,6 @@ class Ui_Dialog(object):
         self.playButton.clicked.connect(self.playButtonLogic)
 
         # spawning reset button
-        self.resetButton = QtWidgets.QPushButton(Dialog)
-        self.resetButton.setGeometry(QtCore.QRect(10, 180, 361, 61))
-        font = QtGui.QFont()
-        font.setFamily("Dubai")
-        font.setPointSize(36)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.resetButton.setFont(font)
-        self.resetButton.setAutoFillBackground(False)
-        self.resetButton.setStyleSheet(
-            "\n"
-            'font: 36pt "Dubai";\n'
-            "color: rgb(230, 230, 230);\n"
-            "background-color: rgb(117, 117, 117);"
-        )
-        self.resetButton.setObjectName("resetButton")
-        self.resetButton.clicked.connect(self.resetButtonLogic)
 
         # spawning logo image
         self.logo = QtWidgets.QLabel(Dialog)
@@ -81,13 +63,15 @@ class Ui_Dialog(object):
         self.logo.setPixmap(QtGui.QPixmap("./images/biglogowhite.png"))
         self.logo.setScaledContents(True)
         self.logo.setObjectName("label")
-
+        """
         # spawning box that shows the color of the round currently in
         self.roundIndicatorColor = QtWidgets.QGraphicsView(Dialog)
         self.roundIndicatorColor.setGeometry(QtCore.QRect(660, 10, 91, 81))
         self.roundIndicatorColor.setStyleSheet("background-color: rgb(255, 85, 0);")
         self.roundIndicatorColor.setObjectName("roundIndicatorColor")
 
+        """
+        """
         # spawning directions text
         self.directionsText = QtWidgets.QLabel(Dialog)
         self.directionsText.setGeometry(QtCore.QRect(290, 20, 181, 61))
@@ -100,23 +84,21 @@ class Ui_Dialog(object):
             'font: 8pt "MS Shell Dlg 2";'
         )
         self.directionsText.setObjectName("directionsText")
-
+        """
         # setting the layer order of elements in window
         self.logo.raise_()
-        self.resetButton.raise_()
-        self.roundIndicatorColor.raise_()
+        # self.roundIndicatorColor.raise_()
         self.playButton.raise_()
-        self.directionsText.raise_()
+        # self.directionsText.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
-        Dialog.setTabOrder(self.playButton, self.resetButton)
-        Dialog.setTabOrder(self.resetButton, self.roundIndicatorColor)
 
     def retranslateUi(self, Dialog):
         # setting the text of each element (if there is any)
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "9Round Bell System"))
+        """
         self.directionsText.setText(
             _translate(
                 "Dialog",
@@ -129,8 +111,8 @@ class Ui_Dialog(object):
                 "the program from running and reset the volume to 100. ",
             )
         )
+        """
         self.playButton.setText(_translate("Dialog", "PLAY"))
-        self.resetButton.setText(_translate("Dialog", "RESET"))
 
     # all this above is initializing the formatting to look pretty <3
     def UpdateButtonStyle(self):
@@ -150,15 +132,19 @@ class Ui_Dialog(object):
             self.playButton.setText(
                 QtCore.QCoreApplication.translate("Dialog", "RESET")
             )
+            self.playButton.setStyleSheet(
+                "background-color: rgb(200, 10, 37);\n" "\n" 'font: 36pt "Dubai";'
+            )
             self.x = 1
         else:
-            print("you already have an instance running!")
-
-    def resetButtonLogic(self):
-        self.volumeThread.kill()
-        volumeController.setVolume(50)
-        self.playButton.setText(QtCore.QCoreApplication.translate("Dialog", "PLAY"))
-        self.x = 0
+            # print("you already have an instance running!")
+            self.volumeThread.kill()
+            volumeController.setVolume(50)
+            self.playButton.setText(QtCore.QCoreApplication.translate("Dialog", "PLAY"))
+            self.x = 0
+            self.playButton.setStyleSheet(
+                "background-color: rgb(6, 176, 37);\n" "\n" 'font: 36pt "Dubai";'
+            )
 
 
 if __name__ == "__main__":
