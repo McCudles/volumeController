@@ -4,6 +4,7 @@ from easing_functions import *
 import numpy as np
 import controlPoints as ctrlPnts
 import volumeController
+import ringBell as ring
 
 # This file should be controlled by gui.py
 
@@ -62,6 +63,12 @@ def run():
         if timeElapsed >= controlPoints[len(controlPoints) - 1][0]:
             restartTime()
             timeElapsed = currentTime - startTime
+        if np.floor(timeElapsed) == 0:
+            ring.ringBell()
+        elif np.floor(timeElapsed) == 150:
+            ring.ringBell()
+        elif np.floor(timeElapsed) == 180:
+            ring.ringBell()
         newVolume = utils.getVolume(timeElapsed)
         volumeController.setVolume(newVolume)
         time.sleep(stepSize)

@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['gui.py'],
+a = Analysis(['gui.pyw'],
              pathex=[],
              binaries=[],
              datas=[],
@@ -29,7 +29,7 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
-          console=True,
+          console=False,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
